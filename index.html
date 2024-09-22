@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pick Me Up App</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_hkv9NkNWUzNw23hx8b5qJ6DnuX1R35c"></script>
+
+</head>
+<body>
+  <div class="container">
+    <h1>Pick Me Up App</h1>
+
+    <input type="text" id="user-name" placeholder="Your Name" required>
+
+    <div class="location-info">
+      <h2>TJ's Location:</h2>
+      <p id="tj-location">Pickering, ON L1V 3E3</p> <!-- Static location for now -->
+    </div>
+
+
+    <div class="user-request">
+      <h2>Your Location:</h2>
+      <button id="pickup-btn">Pick Me Up</button>
+      <p id="user-location">Click the button to share your location with TJ.</p>
+    </div>
+  </div>
+
+  <!-- Google Maps API Script (You need to add your API key) -->
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+
+  <script src="app.js"></script>
+</body>
+</html>
