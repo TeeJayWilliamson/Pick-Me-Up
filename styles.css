@@ -1,9 +1,11 @@
+/* Common styles */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* General Styles */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f4f4;
@@ -12,17 +14,13 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-#user-name {
-    text-align: center;
-}
-
-button:disabled {
-    background-color: #d3d3d3; /* Light gray */
-    color: #a9a9a9; /* Darker gray */
-    cursor: not-allowed; /* Change cursor to indicate it's not clickable */
-    opacity: 0.6; /* Make it slightly transparent */
+/* Dark Mode Styles */
+body.dark {
+    background-color: #333; /* Dark grey background */
+    color: #e0e0e0; /* Light text color for readability */
 }
 
 .container {
@@ -33,18 +31,12 @@ button:disabled {
     width: 90%;
     max-width: 400px;
     text-align: center;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #28a745;
-}
-
-h2 {
-    font-size: 20px;
-    margin: 15px 0;
-    color: #555;
+.container.dark {
+    background-color: #000; /* Darker container */
+    color: #fff;
 }
 
 input[type="text"] {
@@ -54,6 +46,7 @@ input[type="text"] {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
+    transition: border-color 0.3s, background-color 0.3s, color 0.3s;
 }
 
 input[type="text"]:focus {
@@ -61,6 +54,79 @@ input[type="text"]:focus {
     outline: none;
 }
 
+input[type="text"].dark {
+    border-color: #555;
+    background-color: #333; /* Dark input background */
+    color: #e0e0e0; /* Light text in dark input */
+}
+
+#user-name {
+    text-align: center;
+}
+
+/* Switch Styles */
+.theme-toggle {
+    margin-bottom: 20px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #28a745;
+}
+
+input:checked + .slider:before {
+    transform: translateX(14px);
+}
+
+/* Heading Styles */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #28a745;
+}
+
+h2 {
+    font-size: 20px;
+    margin: 15px 0;
+}
+
+/* Button Styles */
 button {
     background-color: #28a745;
     color: white;
@@ -72,10 +138,6 @@ button {
     transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #218838;
-}
-
 button:disabled {
     background-color: #d3d3d3; /* Light gray */
     color: #a9a9a9; /* Darker gray */
@@ -83,48 +145,46 @@ button:disabled {
     opacity: 0.6; /* Make it slightly transparent */
 }
 
+button:hover {
+    background-color: #218838;
+}
 
+/* Paragraph Styles */
 p {
     font-size: 16px;
     margin-top: 10px;
     color: #777;
 }
 
+/* Location Info and User Request */
 .location-info, .user-request {
     margin: 20px 0;
 }
 
-/* Modal styles */
+/* Modal Styles */
 .modal {
     display: none; /* Hidden by default */
     position: fixed;
     z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; /* Full width to cover the whole screen */
-    height: 100%; /* Full height to cover the whole screen */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-    display: flex; /* Use flexbox for centering */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
 }
 
 .modal-content {
     background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    display: inline-block; /* Make it only as wide as the content */
-    min-width: 200px; /* Optional: set a minimum width */
-    text-align: center; /* Center text inside the modal */
-    border-radius: 8px; /* Optional: add rounded corners */
+    width: auto; /* Width adjusted based on content */
 }
-
 
 .close-button {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-    cursor: pointer; /* Change cursor to indicate it's clickable */
 }
-

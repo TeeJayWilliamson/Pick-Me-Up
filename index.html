@@ -23,15 +23,22 @@
       <button id="pickup-btn" disabled>Pick Me Up</button>
       <p id="user-location">Click the button to share your location.</p>
     </div>
-  </div>
 
-  <!-- Modal for alerts -->
-  <div id="custom-alert" class="modal" style="display: none;">
+    <div class="theme-toggle">
+      <label class="switch">
+          <input type="checkbox" id="theme-toggle">
+          <span class="slider round"></span>
+      </label>
+      <span>Toggle Dark Mode</span>
+  </div>
+  
+
+  <div id="custom-alert" class="modal">
     <div class="modal-content">
-        <span class="close-button" onclick="closeAlert()">&times;</span>
-        <p id="alert-message"></p>
+      <span class="close-button" onclick="closeAlert()">&times;</span>
+      <p id="alert-message"></p>
     </div>
-</div>
+  </div>
 
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="app.js"></script>

@@ -3,13 +3,6 @@
     emailjs.init("fIxIVsRzC22mERFVa"); // Replace with your actual public key
 })();
 
-// Function to check the input and enable/disable the button
-function checkInput() {
-    const userNameInput = document.getElementById('user-name');
-    const pickupButton = document.getElementById('pickup-btn');
-    pickupButton.disabled = userNameInput.value.trim() === '';
-}
-
 // Function to show the custom alert modal
 function showAlert(message) {
     document.getElementById('alert-message').innerText = message;
@@ -45,10 +38,10 @@ function getUserLocation() {
                             user_address: address,
                         })
                         .then(function(response) {
-                            showAlert("Location sent to TJ successfully!");
+                            showAlert("Pick Me Up App says: Location sent to TJ successfully!");
                         }, function(error) {
                             console.error("EmailJS Error:", error);
-                            showAlert("Failed to send location. Check console for details.");
+                            showAlert("Pick Me Up App says: Failed to send location. Check console for details.");
                         });
 
                     } else {
@@ -66,20 +59,28 @@ function getUserLocation() {
     }
 }
 
-// Function to show the custom alert modal
-function showAlert(message) {
-    document.getElementById('alert-message').innerText = message;
-    document.getElementById('custom-alert').style.display = 'flex'; // Use flex to center
+// Function to toggle button state based on input
+function toggleButtonState() {
+    const usernameInput = document.getElementById('user-name');
+    const pickupButton = document.getElementById('pickup-btn');
+    pickupButton.disabled = usernameInput.value.trim() === "";
 }
 
-// Function to close the custom alert modal
-function closeAlert() {
-    document.getElementById('custom-alert').style.display = 'none';
-}
+// Add event listener to the username input
+const usernameInput = document.getElementById('user-name');
+usernameInput.addEventListener('input', toggleButtonState);
 
+// Initialize button state on page load
+toggleButtonState();
 
-// Add event listener to the input to check for changes
-document.getElementById('user-name').addEventListener('input', checkInput);
+// Theme toggle functionality
+const themeToggle = document.getElementById('theme-toggle');
+
+themeToggle.addEventListener('change', function() {
+    document.body.classList.toggle('dark');
+    const container = document.querySelector('.container');
+    container.classList.toggle('dark', this.checked);
+});
 
 // Add event listener to the "Pick Me Up" button
 const pickupButton = document.getElementById('pickup-btn');
