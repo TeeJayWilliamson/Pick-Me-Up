@@ -3,6 +3,8 @@
     emailjs.init("fIxIVsRzC22mERFVa"); // Replace with your actual public key
 })();
 
+
+
 // Function to get the user's location and send it via email
 function getUserLocation() {
     if (navigator.geolocation) {

@@ -14,6 +14,17 @@ body {
     height: 100vh;
 }
 
+#user-name {
+    text-align: center;
+}
+
+button:disabled {
+    background-color: #d3d3d3; /* Light gray */
+    color: #a9a9a9; /* Darker gray */
+    cursor: not-allowed; /* Change cursor to indicate it's not clickable */
+    opacity: 0.6; /* Make it slightly transparent */
+}
+
 .container {
     background-color: white;
     border-radius: 10px;

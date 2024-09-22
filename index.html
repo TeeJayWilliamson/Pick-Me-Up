@@ -12,7 +12,8 @@
   <div class="container">
     <h1>Pick Me Up App</h1>
 
-    <input type="text" id="user-name" placeholder="Your Name" required>
+    <input type="text" id="user-name" placeholder="Your Name" required oninput="this.value ? document.getElementById('pickup-btn').disabled = false : document.getElementById('pickup-btn').disabled = true;">
+
 
     <div class="location-info">
       <h2>TJ's Location:</h2>
@@ -22,7 +23,7 @@
 
     <div class="user-request">
       <h2>Your Location:</h2>
-      <button id="pickup-btn">Pick Me Up</button>
+      <button id="pickup-btn" disabled>Pick Me Up</button>
       <p id="user-location">Click the button to share your location with TJ.</p>
     </div>
   </div>
