@@ -76,6 +76,14 @@ button:hover {
     background-color: #218838;
 }
 
+button:disabled {
+    background-color: #d3d3d3; /* Light gray */
+    color: #a9a9a9; /* Darker gray */
+    cursor: not-allowed; /* Change cursor to indicate it's not clickable */
+    opacity: 0.6; /* Make it slightly transparent */
+}
+
+
 p {
     font-size: 16px;
     margin-top: 10px;
@@ -85,3 +93,38 @@ p {
 .location-info, .user-request {
     margin: 20px 0;
 }
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width to cover the whole screen */
+    height: 100%; /* Full height to cover the whole screen */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    display: inline-block; /* Make it only as wide as the content */
+    min-width: 200px; /* Optional: set a minimum width */
+    text-align: center; /* Center text inside the modal */
+    border-radius: 8px; /* Optional: add rounded corners */
+}
+
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer; /* Change cursor to indicate it's clickable */
+}
+

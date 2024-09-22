@@ -6,20 +6,17 @@
   <title>Pick Me Up App</title>
   <link rel="stylesheet" href="styles.css">
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_hkv9NkNWUzNw23hx8b5qJ6DnuX1R35c"></script>
-
 </head>
 <body>
   <div class="container">
     <h1>Pick Me Up App</h1>
 
-    <input type="text" id="user-name" placeholder="Your Name" required oninput="this.value ? document.getElementById('pickup-btn').disabled = false : document.getElementById('pickup-btn').disabled = true;">
-
+    <input type="text" id="user-name" placeholder="Your Name" required>
 
     <div class="location-info">
       <h2>TJ's Location:</h2>
-      <p id="tj-location">Pickering, ON L1V 3E3</p> <!-- Static location for now -->
+      <p id="tj-location">Pickering, ON L1V 3E3</p>
     </div>
-
 
     <div class="user-request">
       <h2>Your Location:</h2>
@@ -28,11 +25,15 @@
     </div>
   </div>
 
-  <!-- Google Maps API Script (You need to add your API key) -->
-  <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-</script>
+  <!-- Modal for alerts -->
+  <div id="custom-alert" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeAlert()">&times;</span>
+        <p id="alert-message"></p>
+    </div>
+</div>
 
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

@@ -3,7 +3,23 @@
     emailjs.init("fIxIVsRzC22mERFVa"); // Replace with your actual public key
 })();
 
+// Function to check the input and enable/disable the button
+function checkInput() {
+    const userNameInput = document.getElementById('user-name');
+    const pickupButton = document.getElementById('pickup-btn');
+    pickupButton.disabled = userNameInput.value.trim() === '';
+}
 
+// Function to show the custom alert modal
+function showAlert(message) {
+    document.getElementById('alert-message').innerText = message;
+    document.getElementById('custom-alert').style.display = 'block';
+}
+
+// Function to close the custom alert modal
+function closeAlert() {
+    document.getElementById('custom-alert').style.display = 'none';
+}
 
 // Function to get the user's location and send it via email
 function getUserLocation() {
@@ -29,10 +45,10 @@ function getUserLocation() {
                             user_address: address,
                         })
                         .then(function(response) {
-                            alert("Location sent to TJ successfully!");
+                            showAlert("Location sent to TJ successfully!");
                         }, function(error) {
                             console.error("EmailJS Error:", error);
-                            alert("Failed to send location. Check console for details.");
+                            showAlert("Failed to send location. Check console for details.");
                         });
 
                     } else {
@@ -43,12 +59,27 @@ function getUserLocation() {
                 }
             });
         }, function (error) {
-            alert("Unable to retrieve location.");
+            showAlert("Unable to retrieve location.");
         });
     } else {
-        alert("Geolocation is not supported by this browser.");
+        showAlert("Geolocation is not supported by this browser.");
     }
 }
+
+// Function to show the custom alert modal
+function showAlert(message) {
+    document.getElementById('alert-message').innerText = message;
+    document.getElementById('custom-alert').style.display = 'flex'; // Use flex to center
+}
+
+// Function to close the custom alert modal
+function closeAlert() {
+    document.getElementById('custom-alert').style.display = 'none';
+}
+
+
+// Add event listener to the input to check for changes
+document.getElementById('user-name').addEventListener('input', checkInput);
 
 // Add event listener to the "Pick Me Up" button
 const pickupButton = document.getElementById('pickup-btn');
