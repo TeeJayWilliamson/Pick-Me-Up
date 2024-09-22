@@ -38,10 +38,10 @@ function getUserLocation() {
                             user_address: address,
                         })
                         .then(function(response) {
-                            showAlert("Pick Me Up App says: Location sent to TJ successfully!");
+                            showAlert("Location sent to TJ successfully!");
                         }, function(error) {
                             console.error("EmailJS Error:", error);
-                            showAlert("Pick Me Up App says: Failed to send location. Check console for details.");
+                            showAlert("Failed to send location. Check console for details.");
                         });
 
                     } else {
